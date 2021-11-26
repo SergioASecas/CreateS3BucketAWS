@@ -1,0 +1,8 @@
+Resources:
+  S3Bucket:
+    Type: 'AWS::S3::Bucket'
+    DeletionPolicy: Retain
+    Properties:
+      BucketName: examples3awsbancolombialogs 
+      VersioningConfiguration:
+        Status: Enabled  
