@@ -1,0 +1,22 @@
+Resources:
+  S3Bucket:
+    Type: 'AWS::S3::Bucket'
+    DeletionPolicy: Retain
+    Properties:
+      BucketName: examples4awsbancolombialogs   
+      VersioningConfiguration:
+        Status: Enabled
+      ReplicationConfiguration:
+        Role: 'arn:aws:iam::275269419236:role/service-role/s3crr_role_for_examples3awsbancolombialogs'
+        Rules:
+          - Id: MyRule1
+            Status: Enabled
+            Priority: 0
+            DeleteMarkerReplication: 
+              Status: Disabled
+            Filter : 
+              Prefix: ""
+            Destination:
+              Bucket: 'arn:aws:s3:::awssergioprueba'
+              #StorageClass: STANDARD
+      
